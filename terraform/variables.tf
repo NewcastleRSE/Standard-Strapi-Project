@@ -24,6 +24,10 @@ variable "project_contributors" {
   type = string
 }
 
+variable "image_name" {
+  type = string
+}
+
 variable "app_keys" {
   type        = string
   sensitive   = true
