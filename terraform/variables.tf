@@ -33,7 +33,7 @@ variable "app_keys" {
   sensitive   = true
 }
 
-variable "jwt_secret" {
+variable "admin_jwt_secret" {
   type        = string
   sensitive   = true
 }
