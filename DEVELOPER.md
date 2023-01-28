@@ -94,3 +94,31 @@ The only required variable is the [Data Source Name](https://docs.sentry.io/prod
 ## Terraform
 
 ## GitHub Workflows
+
+There are two workflow files that come setup for build and deploy actions. These are stored in the `./github/workflows` directory. 
+
+### Build
+
+The build step produces a Docker image with your Strapi instance packaged up and ready to deploy. A build is triggered on any push to `main` or a tagged release. For push based triggers the Docker images is tagged with a label of `latest`. For tagged releases the image is labeled with a matching semantic version, for example `1.2.3`. These images are then pushed to a container registry, the intention being the one created by Terraform but it could be to a third party registry like DockerHub.
+
+#### REGISTRY (Workflow Variable)
+The URL for the container registery to push images to.
+
+#### IMAGE_NAME (Workflow Variable)
+The image name you want to use, for example `strapi-api`, this then gets labled in the form `strpai-api:latest`.
+
+#### REGISTRY_USERNAME (Secret)
+The username used for authenticating with the container registry.
+
+#### REGISTRY_PASSWORD (Secret)
+The password used for authenticating with the container registry.
+
+### Deploy
+
+The deploy step assumes a build has just run successful that has ended with a semantically tagged version pushed to the registry.
+
+#### APP_NAME (Workflow Variable)
+The name of the Azure Web App that runs the container, this is the one created via Terraform.
+
+#### PUBLISH_PROFILE (Secret)
+Azure uses publish profiles to allow CI/CD pipelines to interact with Azure App Services. A publish profile is a small XML string that needs to be stored as a repository secret. Follow [these steps](https://learn.microsoft.com/en-us/visualstudio/azure/how-to-get-publish-profile-from-azure-app-service?view=vs-2022) for obtaining a publish profile for your app.

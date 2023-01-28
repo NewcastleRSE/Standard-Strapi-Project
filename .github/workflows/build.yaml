@@ -3,12 +3,11 @@ name: Build
 env:
    REGISTRY: tobemodified
    IMAGE_NAME: tobemodified
-   APP_NAME: tobemodified
 
 on:
   push:
     branches:
-      - 'dev'
+      - 'main'
 
 jobs:
   build:
