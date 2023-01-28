@@ -1,6 +1,6 @@
 # Developer Setup
 
-Broadly there are three main areas that require developer input before being able to run the app locally and in production; global environment variables in the `.env` file, creation of production resources with [Terraform](https://www.terraform.io/), and autoamted deployment with [GitHub workflows](https://docs.github.com/en/actions/using-workflows).
+Broadly there are three main areas that require developer input before being able to run the app locally and in production; global environment variables in the `.env` file, creation of production resources with [Terraform](https://www.terraform.io/), and automated deployment with [GitHub workflows](https://docs.github.com/en/actions/using-workflows).
 
 To get started locally first, only the `.env` file is needed. 
 
