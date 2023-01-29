@@ -93,6 +93,31 @@ The only required variable is the [Data Source Name](https://docs.sentry.io/prod
 
 ## Terraform
 
+[Terraform](https://www.terraform.io/) files are included to create all of the resources nessecary to run Strapi in Azure. This includes a [Container Registry](https://learn.microsoft.com/en-us/azure/container-registry/) for storing container images, a [Storage Account](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview) for persisting uploaded media and an [App Service](https://learn.microsoft.com/en-us/azure/app-service/overview) for running an instance of the container image.
+
+This guide assumes the developer is already familiar with Terraform, so the commands to create and destroy resources are not covered here. The main file that needs developer input is `/terraform/variables.tf`. The `main.tf` file is parameterised in such a way that it shouldn't need editing unless making significant changes to the resources. Instead, the variables file prompts the user to enter all of the values required. A large portion of these are the same as required to run the app localled, and are outlined in the `Environment Variables` section. Variables not covered there are described here.
+
+#### subscription_id
+The subscription ID in the billing account, this is the level at which billing happens. Each project should request it's own subscription via NU Service and provide a cost center to charge.
+
+#### resource_group_name
+The name of the Azure resource group in which to create all the resources.
+
+#### resource_group_location
+The Azure geolocation of the data center to run the resources in.
+
+#### project_name
+The name of the project.
+
+#### project_pi
+The Principle Investigator or Project Lead
+
+#### project_contributors
+A list of names of people contributing to the project.
+
+#### image_name
+The name of the image from the registry to run in the app service. This must match value in the GitHub workflow used to crate the image.
+
 ## GitHub Workflows
 
 There are two workflow files that come setup for build and deploy actions. These are stored in the `./github/workflows` directory. 
@@ -100,6 +125,8 @@ There are two workflow files that come setup for build and deploy actions. These
 ### Build
 
 The build step produces a Docker image with your Strapi instance packaged up and ready to deploy. A build is triggered on any push to `main` or a tagged release. For push based triggers the Docker images is tagged with a label of `latest`. For tagged releases the image is labeled with a matching semantic version, for example `1.2.3`. These images are then pushed to a container registry, the intention being the one created by Terraform but it could be to a third party registry like DockerHub.
+
+If the included terraform files are used, you can find the value for all of these properties in the settings page of the Azure registry that gets created.
 
 #### REGISTRY (Workflow Variable)
 The URL for the container registery to push images to.

@@ -109,19 +109,33 @@ resource "azurerm_linux_web_app" "as" {
   }
 
   app_settings = {
-    HOST = "0.0.0.0"
-    PORT = "8080"
-    APP_KEYS = var.app_keys
-    API_TOKEN_SALT = var.api_token_salt
+    # Server
+    HOST = var.host
+    PORT = var.port
+    URL = "https://${azurerm_resource_group.rg.name}.azurewebsites.net"
+    PUBLIC_URL = "https://${azurerm_resource_group.rg.name}.azurewebsites.net"
+    PUBLIC_ADMIN_URL = "https://${azurerm_resource_group.rg.name}.azurewebsites.net/dashboard"
+    # Database Connection
     DATABASE_HOST = azurerm_mysql_flexible_server.mysql.fqdn
     DATABASE_PORT = "3306"
+    DATABASE_SSL = true
     DATABASE_NAME = azurerm_resource_group.rg.name
     DATABASE_USERNAME = var.database_username
     DATABASE_PASSWORD = var.database_password
-    DATABASE_SSL = "true"
+    # API Security
+    APP_KEYS = var.app_keys
+    API_TOKEN_SALT = var.api_token_salt
+    ADMIN_JWT_SECRET = var.admin_jwt_secret
+    # Azure storage plugin
+    STORAGE_ACCOUNT = var.storage_account
+    STORAGE_ACCOUNT_KEY = var.storage_key
+    STORAGE_URL = var.storage_url
+    STORAGE_CONTAINER_NAME = var.storage_container_name
+    STORAGE_PATH = var.storage_path
+    STORAGE_MAX_CONCURRENT = var.storage_max_concurrent
+    # Sentry
     SENTRY_DSN = var.sentry_dsn
-    PUBLIC_URL = "https://${azurerm_resource_group.rg.name}.azurewebsites.net/"
-    PUBLIC_ADMIN_URL = "https://${azurerm_resource_group.rg.name}.azurewebsites.net/dashboard"
+    # Azure Services
     WEBSITES_ENABLE_APP_SERVICE_STORAGE = "true"
     DOCKER_REGISTRY_SERVER_USERNAME = azurerm_container_registry.acr.admin_username
     DOCKER_REGISTRY_SERVER_PASSWORD = azurerm_container_registry.acr.admin_password
