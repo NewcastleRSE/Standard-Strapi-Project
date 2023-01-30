@@ -1,5 +1,5 @@
 # Standard Project
-A template repo for the standard RSE project
+A template repo for an Azure hosted MySQL backed instantcce of Strapi, including the standard RSE project README, pull request and issue templates. Full developer documentation on the steps needed to modify the app are at [DEVELOPER.md](./DEVELOPER.md).
 
 ## About
 

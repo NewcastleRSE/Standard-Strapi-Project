@@ -1,7 +1,3 @@
-locals {
-  env = terraform.workspace == "production" ? "" : "-dev"
-}
-
 variable "subscription_id" {
   type = string
   sensitive   = true
@@ -9,7 +5,6 @@ variable "subscription_id" {
 
 variable "resource_group_name" {
   type = string
-  default = "rseadmin"
 }
 
 variable "resource_group_location" {
@@ -19,17 +14,26 @@ variable "resource_group_location" {
 
 variable "project_name" {
   type = string
-  default = "RSE Admin"
 }
 
 variable "project_pi" {
   type = string
-  default = "Mark Turner"
 }
 
 variable "project_contributors" {
   type = string
-  default = "Mark Turner, Kate Court, Rebecca Osselton"
+}
+
+variable "image_name" {
+  type = string
+}
+
+variable "host" {
+  type        = string
+}
+
+variable "port" {
+  type        = string
 }
 
 variable "app_keys" {
@@ -37,7 +41,7 @@ variable "app_keys" {
   sensitive   = true
 }
 
-variable "jwt_secret" {
+variable "admin_jwt_secret" {
   type        = string
   sensitive   = true
 }
@@ -57,27 +61,32 @@ variable "database_password" {
   sensitive   = true
 }
 
-variable "hubspot_key" {
+variable "sentry_dsn" {
   type        = string
   sensitive   = true
 }
 
-variable "clockify_key" {
+variable "storage_account" {
+  type        = string
+}
+
+variable "storage_key" {
   type        = string
   sensitive   = true
 }
 
-variable "clockify_workspace" {
+variable "storage_url" {
   type        = string
-  sensitive   = true
 }
 
-variable "transactions_sheet" {
+variable "storage_container_name" {
   type        = string
-  default     = "Transactions_All_Time"
 }
 
-variable "transactions_header" {
+variable "storage_path" {
   type        = string
-  default     = "null,CO_Object_Name,WBS_element,Cost_Elem.,Cost_element_descr.,RefDocNo,Document_Header_Text,Name,Year,frm,Doc._Date,Postg_Date,Val/COArea_Crcy,BW_Category,I/E"
+}
+
+variable "storage_max_concurrent" {
+  type        = string
 }
