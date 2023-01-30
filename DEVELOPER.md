@@ -118,7 +118,7 @@ The Principle Investigator or Project Lead
 A list of names of people contributing to the project.
 
 #### image_name
-The name of the image from the registry to run in the app service. This must match value in the GitHub workflow used to crate the image.
+The name of the image from the registry to run in the app service. This must match the value in the GitHub workflow used to create the image.
 
 ## GitHub Workflows
 
