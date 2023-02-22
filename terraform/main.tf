@@ -18,7 +18,7 @@ provider "azurerm" {
 resource "azurerm_resource_group" "rg" {
   name = var.resource_group_name
   location = var.resource_group_location
-  
+
   tags = {
     Name          = var.project_name
     PI            = var.project_pi
@@ -112,7 +112,7 @@ resource "azurerm_linux_web_app" "as" {
     name          = azurerm_storage_account.storage.name
     share_name    = "uploads"
     type          = "AzureBlob"
-    mount_path    = "/uploads"
+    mount_path    = "/usr/local/src/public/uploads"
   }
 
   identity {
