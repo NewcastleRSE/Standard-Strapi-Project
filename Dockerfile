@@ -21,7 +21,7 @@ COPY database ./database
 COPY public ./public
 COPY src ./src
 COPY package.json ./
-COPY favicon.ico ./
+COPY favicon.png ./
 
 # Install from source
 RUN yarn install
