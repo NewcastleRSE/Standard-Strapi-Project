@@ -104,6 +104,15 @@ resource "azurerm_linux_web_app" "as" {
     }
   }
 
+  storage_account {
+    access_key = azurerm_storage_account.storage.primary_access_key
+    account_name = azurerm_storage_account.storage.name
+    name = azurerm_storage_account.storage.name
+    share_name = "uploads"
+    type = "AzureBlob"
+    mount_path = "/uploads"
+  }
+
   identity {
     type = "SystemAssigned"
   }
