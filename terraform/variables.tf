@@ -65,28 +65,3 @@ variable "sentry_dsn" {
   type        = string
   sensitive   = true
 }
-
-variable "storage_account" {
-  type        = string
-}
-
-variable "storage_key" {
-  type        = string
-  sensitive   = true
-}
-
-variable "storage_url" {
-  type        = string
-}
-
-variable "storage_container_name" {
-  type        = string
-}
-
-variable "storage_path" {
-  type        = string
-}
-
-variable "storage_max_concurrent" {
-  type        = string
-}

@@ -59,32 +59,6 @@ New API tokens are generated using a salt. Changing the salt invalidates all the
 #### ADMIN_JWT_SECRET
 A random string used to encode JWT tokens. Use a random string generator to create one.
 
-### File Storage
-By defaulty Strapi stores uploaded files in the local file directory. This is a problem when running Strapi in Docker because storage is ephemeral and will be lost with each restart of the container. You will see this situation if you have file metadata in the database that reference file paths that no longer resolve. To get around this problem the [strapi-provider-upload-azure-storage](https://github.com/jakeFeldman/strapi-provider-upload-azure-storage) is included so that any uploaded files are backed up there.
-
-#### STORAGE_ACCOUNT
-The name of the Azure storage account being used.
-
-#### STORAGE_ACCOUNT_KEY
-The name of the Azure storage account key, get this from the security settings in Azure.
-
-#### STORAGE_URL
-This is optional, it is useful when connecting to Azure Storage API compatible services, like the official emulator Azurite. STORAGE_URL would then look like http://localhost:10000/your-storage-account-key. 
-
-When STORAGE_URL is not provided, it defaults to https://${STORAGE_ACCOUNT}.blob.core.windows.net will be used.
-
-#### STORAGE_CONTAINER_NAME
-The name of the Azure storage container being used.
-
-#### STORAGE_CDN_URL
-This is optional, it is useful when using CDN in front of your storage account. Images will be returned with the CDN URL instead of the storage account URL.
-
-#### STORAGE_PATH
-The path within the container to store images. Left blank this will store them at the root of the container.
-
-#### STORAGE_MAX_CONCURRENT
-Used for setting this maximum number of concurrent connections ot Azure when uploading multiple files.
-
 ### Sentry
 The [Sentry Strapi plugin](https://github.com/strapi/strapi/tree/master/packages/plugins/sentry) is included in this installation for tracking uncaught errors. The plugin GitHub readme has the full documentation if required.
 

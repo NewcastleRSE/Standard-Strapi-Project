@@ -77,7 +77,7 @@ resource "azurerm_mysql_flexible_database" "database" {
 }
 
 resource "azurerm_service_plan" "asp" {
-  name                = "rseadmin-plan"
+  name                = var.resource_group_name
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   os_type             = "Linux"
