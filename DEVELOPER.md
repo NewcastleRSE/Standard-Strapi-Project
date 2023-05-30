@@ -9,7 +9,7 @@ To get started locally first, only the `.env` file is needed.
 Strapi requires a number of [environment variables](https://docs.strapi.io/developer-docs/latest/setup-deployment-guides/configurations.html) to be set in order to do basic things like connect to the database, as well as power some of the installed plugins. To get started make a new `.env` file and copy the contents from the `.env.example` file at the root of the project. `.env` files ares excluded from version control using the `.gitignore` file.
 
 ### Server
-Strapi itself can be customised to serve in different ways depending on the local or production setup you'd like. Refer to the full Strapi documentation for full details.
+Strapi itself can be customised to serve in different ways depending on the local or production setup you'd like. Refer to the [Strapi documentation](https://docs.strapi.io/developer-docs/latest/setup-deployment-guides/configurations.html) for full details.
 
 #### HOST
 The hostname or IP that the server is running on. Usually set to `0.0.0.0`.
@@ -74,7 +74,7 @@ This guide assumes the developer is already familiar with Terraform, so the comm
 Manually entry of terraform variables can get annoying if done repeatedly, in that case checkout the excellent [tfenv](https://github.com/cloudposse/tfenv) library to read the values from a `.env` file.
 
 #### subscription_id
-The subscription ID in the billing account, this is the level at which billing happens. Each project should request it's own subscription via NU Service and provide a cost center to charge.
+The subscription ID in the billing account, this is the level at which billing happens. Each project should request its own subscription via NU Service and provide a cost center to charge.
 
 #### resource_group_name
 The name of the Azure resource group in which to create all the resources.
@@ -92,7 +92,7 @@ The Principle Investigator or Project Lead
 A list of names of people contributing to the project.
 
 #### image_name
-The name of the image from the registry to run in the app service. This must match value in the GitHub workflow used to crate the image.
+The name of the image from the registry to run in the app service. This must match the value in the GitHub workflow used to create the image.
 
 ## GitHub Workflows
 
