@@ -11,14 +11,14 @@
   },
   "devDependencies": {},
   "dependencies": {
-    "@strapi/strapi": "4.6.0",
-    "@strapi/plugin-documentation": "4.6.0",
-    "@strapi/plugin-i18n": "4.6.0",
-    "@strapi/plugin-sentry": "4.6.0",
-    "@strapi/plugin-users-permissions": "4.6.0",
+    "@strapi/strapi": "4.10.6",
+    "@strapi/plugin-documentation": "4.10.6",
+    "@strapi/plugin-i18n": "4.10.6",
+    "@strapi/plugin-sentry": "4.10.6",
+    "@strapi/plugin-users-permissions": "4.10.6",
     "mysql": "2.18.1",
     "strapi-plugin-import-export-entries": "^1.18.0",
-    "strapi-plugin-transformer": "^2.1.1",
+    "strapi-plugin-transformer": "^3.1.0"
   },
   "author": {
     "name": "A Strapi developer"
