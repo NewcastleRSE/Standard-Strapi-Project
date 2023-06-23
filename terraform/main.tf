@@ -40,6 +40,13 @@ resource "azurerm_storage_account" "storage" {
   }
 }
 
+resource "azurerm_storage_share" "example" {
+  name                 = "uploads"
+  storage_account_name = azurerm_storage_account.storage.name
+  # Quota is in GB, change it to your requirements
+  quota                = 50
+}
+
 resource "azurerm_container_registry" "acr" {
   name                = var.resource_group_name
   resource_group_name = azurerm_resource_group.rg.name
