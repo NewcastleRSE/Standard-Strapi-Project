@@ -3,7 +3,6 @@
  * Any modifications made will be discarded.
  */
 import documentation from "@strapi/plugin-documentation/strapi-admin";
-import i18N from "@strapi/plugin-i18n/strapi-admin";
 import sentry from "@strapi/plugin-sentry/strapi-admin";
 import usersPermissions from "@strapi/plugin-users-permissions/strapi-admin";
 import importExportEntries from "strapi-plugin-import-export-entries/strapi-admin";
@@ -12,7 +11,6 @@ import { renderAdmin } from "@strapi/strapi/admin";
 renderAdmin(document.getElementById("strapi"), {
   plugins: {
     documentation: documentation,
-    i18n: i18N,
     sentry: sentry,
     "users-permissions": usersPermissions,
     "import-export-entries": importExportEntries,
